@@ -19,12 +19,6 @@ const promptUser = () => {
             message: 'Please add a description of your project',
           },
           {
-            type: 'list',
-            name: 'contents',
-            message: 'Do you need a table of contents?',
-            choices: ['yes', 'no']
-          },
-          {
             type: 'input',
             name: 'installation',
             message: 'What are your installation instructions?',
@@ -61,6 +55,14 @@ const promptUser = () => {
             choices: ['MIT License']
           },
     ])
+    .then((data) => { // .then method if user wants to include an MIT License
+        if (data.license === 'yes') {
+            data.license = `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
+        } else {
+            data.license = '';
+        }
+        return data;
+    })
 };
 
 // TODO: Create a function to write README file

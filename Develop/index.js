@@ -3,6 +3,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const genMD = require('.utils/generateMarkdown');
 const util = require('util');
+const { prompt } = require('inquirer');
 
 // TODO: Create an array of questions for user input
 const promptUser = () => {
@@ -39,15 +40,9 @@ const promptUser = () => {
             name: 'contributions',
           },
           {
-            type: 'list',
-            name: 'testq',
-            message: 'Have you written any tests you would like to include?',
-            choices: ['yes', 'no']
-          },
-          {
            type: 'input',
            name: 'test',
-           message: 'Please link your tests here..[test name](link)',
+           message: 'Please place any tests for project here.',
           },
           {
             type: 'input',
@@ -66,13 +61,18 @@ const promptUser = () => {
             choices: ['MIT License']
           },
     ])
-}
+};
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+const writeMD = util.promisify(fs.writeFile);
 
 // TODO: Create a function to initialize app
-function init() {}
+const init = () => {
+    promptUser()
+    .then((data) => writeMD('README.md', genMD(data)))
+    .then(() => console.log('Succesfully added to README.md!'))
+    .catch((err) => console.log(err));
+}
 
 // Function call to initialize app
 init();

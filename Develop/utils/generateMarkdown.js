@@ -1,6 +1,7 @@
 // TODO: Create a function to generate markdown for README
 const generateMarkdown = (data) =>
-  `# ${data.title}
+  `# ${data.name}
+
   ## Table of Contents
   - [Description](#description)
   - [Installation](#installation)

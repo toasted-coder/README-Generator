@@ -11,7 +11,7 @@
 - [License](#license)
 
 ## Instructional Video
-![WIP]()
+![Instructional Video](https://drive.google.com/file/d/1DiIhPb7SZ5o_z2oUP4ASn9DtOMjvxRDB/view?usp=sharing)
 
 ## Description
 This project is designed to help the user with putting together a README file that looks professional. It's fairly easy to use and will save time when writing READEME files in future projects.
